@@ -4,5 +4,8 @@
         <menuitem id="estate_property_advertisemens" name="Advertisemens">
             <menuitem id="estate_property_properties" action="estate_property_action"/>
         </menuitem>
+        <menuitem id="estate_property_type_settings" name="Settings">
+            <menuitem id="estate_property_types" action="estate_property_type_action"/>
+        </menuitem>
     </menuitem>
 </odoo>
