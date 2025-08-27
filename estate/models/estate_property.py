@@ -66,3 +66,17 @@ class EstateProperty(models.Model):
     def _onchange_garden(self):
         self.garden_area = 10 if self.garden else False
         self.garden_orientation = 'north' if self.garden else False
+
+    def action_sold(self):
+        self.ensure_one()
+        if self.estate in ('sold', 'cancelled'):
+            raise UserError(_('This property cannot be sold'))
+        else:
+            self.estate = 'sold'
+
+    def action_cancel(self):
+        self.ensure_one()
+        if self.estate in ('sold', 'cancelled'):
+            raise UserError(_('This property cannot be cancel'))
+        else:
+            self.estate = 'cancelled'
